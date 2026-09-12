@@ -1,0 +1,1 @@
+import { CategoryPage } from '@/components/CategoryPage'; import { getPortfolioProjects } from '@/sanity/projects'; export default async function(){const projects=await getPortfolioProjects();return <CategoryPage type="motion-design" projects={projects.filter(p=>p.type==='motion-design')}/>}
