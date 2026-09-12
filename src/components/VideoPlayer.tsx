@@ -1,0 +1,2 @@
+import { Project } from '@/data/projects'; import { getEmbedUrl } from '@/lib/utils'
+export function VideoPlayer({project}:{project:Project}){if(project.videoType==='mp4') return <video className="aspect-video w-full rounded-xl bg-black" controls src={project.videoUrl}/>; return <iframe className="aspect-video w-full rounded-xl bg-black" src={getEmbedUrl(project)} title={project.title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/>}
