@@ -1,0 +1,3 @@
+'use client'
+import { usePathname, useRouter } from 'next/navigation'; const chips=[['All','/'],['Long-form','/long-form'],['Short-form','/short-form'],['Motion Design','/motion-design'],['My Frames','/my-frames'],['Poster Designs','/poster-designs']]
+export function CategoryChips(){const p=usePathname();const r=useRouter();return <nav aria-label="Portfolio categories" className="scrollbar-none mb-3 flex gap-2 overflow-x-auto pb-1">{chips.map(([label,href])=><button onClick={()=>r.push(href)} key={label} className={`focus shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition ${p===href?'border-white bg-white text-black':'border-[var(--line)] bg-[var(--surface)] hover:bg-[var(--surface2)]'}`}>{label}</button>)}</nav>}

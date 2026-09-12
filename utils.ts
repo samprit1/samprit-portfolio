@@ -1,0 +1,5 @@
+import { Project } from '@/data/projects'
+export function getYoutubeId(url:string='') { return url.match(/(?:v=|youtu\.be\/|shorts\/)([^&?/]+)/)?.[1] }
+export function getEmbedUrl(project:Project) { const url=project.videoUrl||''; const y=getYoutubeId(url); if(project.videoType==='youtube'&&y) return `https://www.youtube.com/embed/${y}`; if(project.videoType==='vimeo') return `https://player.vimeo.com/video/${url.split('/').pop()}`; return url }
+export function searchProjects(q:string, ps:Project[]) { const s=q.toLowerCase().trim(); return s ? ps.filter(p=>[p.title,p.client,p.category,...(p.tags||[])].filter(Boolean).join(' ').toLowerCase().includes(s)) : ps }
+export function formatDuration(seconds:number) { const total=Math.max(0,Math.round(seconds)); const minutes=Math.floor(total/60); const remainder=String(total%60).padStart(2,'0'); if(minutes>=60){const hours=Math.floor(minutes/60);return `${hours}:${String(minutes%60).padStart(2,'0')}:${remainder}`} return `${minutes}:${remainder}` }
