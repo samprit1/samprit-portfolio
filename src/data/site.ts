@@ -7,5 +7,5 @@ export const siteConfig = {
   aboutBody: 'I’m Samprit, a video editor, motion designer and visual artist focused on building stories people feel. From punchy social cuts to cinematic brand films, every frame is designed with intention.',
   contactTitle: 'Let’s make something great.',
   contactBody: 'Available for freelance projects, creative collaborations, and interesting briefs.',
-  logoUrl: '', profileImageUrl: '', heroBackgroundUrl: '', aboutImageUrl: ''
+  logoUrl: '', profileImageUrl: '', heroBackgroundUrl: '', aboutImageUrl: '', contactEnabled: true
 }
