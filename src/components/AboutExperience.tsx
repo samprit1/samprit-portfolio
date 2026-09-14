@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ArrowUpRight, BriefcaseBusiness, MousePointer2, Sparkles, Wrench } from 'lucide-react'
 import { experience, tools } from '@/data/profile'
 
-export function AboutExperience({title,body,aboutImageUrl}:{title:string;body:string;aboutImageUrl?:string}){
+export function AboutExperience({title,body,aboutImageUrl,contactEnabled=true}:{title:string;body:string;aboutImageUrl?:string;contactEnabled?:boolean}){
   const [pos,setPos] = useState({x:50,y:50})
   const [activeTool,setActiveTool] = useState(0)
   const [activeExperience,setActiveExperience] = useState<number | null>(null)
@@ -18,7 +18,7 @@ export function AboutExperience({title,body,aboutImageUrl}:{title:string;body:st
         <p className="flex items-center gap-2 text-xs font-bold tracking-[.18em] text-[#DF1730]"><Sparkles size={14}/> ABOUT SAMPRIT</p>
         <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight md:text-7xl">{title}</h1>
         <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--muted)] md:text-lg">{body}</p>
-        <a href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#DF1730] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(223,23,48,.35)]">Let’s work together <ArrowUpRight size={17}/></a>
+        {contactEnabled?<a href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#DF1730] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(223,23,48,.35)]">Let’s work together <ArrowUpRight size={17}/></a>:<button type="button" disabled className="mt-8 cursor-not-allowed rounded-full bg-zinc-700 px-5 py-3 text-sm font-bold text-zinc-400">Let’s work together</button>}
       </div>
       <figure className="about-image">
         {imageUrl ? <img src={imageUrl} alt="Samprit creating visual work"/> : <div className="about-image-placeholder" aria-hidden="true"/>}
